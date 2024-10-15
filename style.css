@@ -21,11 +21,13 @@
 
 /* Container HERO */
 .container-hero {
-  width: 100%;
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 20px;
   flex-direction: column;
-  padding-bottom: 20px;
+  padding: 0px 0px 20px 0px;
+  width: 100%;
 }
 
 .form-input {
@@ -43,13 +45,29 @@
 .container-result {
   order: 1;
   background-color: #d4d4d8;
-  width: 100%;
-  padding: 10px;
+  width: max-content;
+  padding: 40px 10px 10px 10px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   align-items: center;
+  position: relative;
+}
+
+.button-close {
+  border: 10px;
+  height: 30px;
+  width: 30px;
+  border-radius: 100%;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}
+
+.button-close:hover {
+  background-color: #d4d4d8;
 }
 
 .label-input {
@@ -80,6 +98,7 @@
   border-radius: 5px;
   color: white;
   font-weight: 500;
+  cursor: pointer;
 }
 
 /* RESULT */
@@ -89,8 +108,36 @@
   max-height: 18rem;
 }
 
-@media screen and (max-width: 768px) {
+.div-data {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 300px;
+}
+
+img {
+  transition: transform 0.2s ease; /* Animasi yang halus saat transformasi */
+  width: 100%; /* Agar gambar memenuhi div */
+  height: auto;
+}
+
+img:hover {
+  transform: scale(1.25);
+}
+
+.div-image {
+  overflow: hidden;
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
   .hero-section {
-    width: 96%;
+    width: 100%;
+  }
+
+  .container {
+    padding: 0px 20px;
   }
 }

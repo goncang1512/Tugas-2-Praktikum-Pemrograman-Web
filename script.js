@@ -38,8 +38,8 @@ containerHero.appendChild(formContainer);
 const inputData = [
   {
     type: "text",
-    name: "Username",
-    label: "Username:",
+    name: "Nama",
+    label: "Nama:",
   },
   {
     type: "number",
@@ -95,10 +95,14 @@ document.querySelector(".form-input").addEventListener("submit", (e) => {
   if (
     formData.get("foto") &&
     formData.get("NIM") &&
-    formData.get("Username") &&
+    formData.get("Nama") &&
     formData.get("KOM")
   ) {
+    const divImg = document.createElement("div");
     const image = document.createElement("img");
+    divImg.appendChild(image);
+    divImg.classList.add("div-image");
+
     window.alert("Form berhasil di submit!");
     const previousResult = containerHero.querySelector(".container-result");
     if (previousResult) {
@@ -118,8 +122,8 @@ document.querySelector(".form-input").addEventListener("submit", (e) => {
 
     const res = [
       {
-        label: "Username:",
-        data: formData.get("Username"),
+        label: "Nama:",
+        data: formData.get("Nama"),
       },
       {
         label: "NIM:",
@@ -134,10 +138,23 @@ document.querySelector(".form-input").addEventListener("submit", (e) => {
     const containerResult = document.createElement("div");
     containerResult.classList.add("container-result");
 
+    const buttonClose = document.createElement("button");
+    buttonClose.innerText = "x";
+    buttonClose.classList.add("button-close");
+
+    containerResult.appendChild(buttonClose);
+
+    // Close Result
+    buttonClose.addEventListener("click", () => {
+      const previousResult = containerHero.querySelector(".container-result");
+      containerHero.removeChild(previousResult);
+    });
+
     image.classList.add("img-result");
-    containerResult.appendChild(image);
+    containerResult.appendChild(divImg);
 
     const containerData = document.createElement("div");
+    containerData.classList.add("div-data");
 
     res.map((data) => {
       const paragraf = document.createElement("p");
